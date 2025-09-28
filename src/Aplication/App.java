@@ -7,9 +7,10 @@ import java.util.*;
 
 public class App {
     public static void main(String[] args){
-        try{
+
+        try (Scanner sc = new Scanner(System.in)) {
             Locale.setDefault(Locale.US);
-            Scanner sc = new Scanner(System.in);
+
 
             System.out.println("Enter account data");
 
@@ -30,11 +31,10 @@ public class App {
             double amount = sc.nextDouble();
             account.withdraw(amount);
             System.out.println("New balance: " + account.getBalance());
-
-            sc.close();
         }
         catch (EntitiesException e) {
-            System.out.println("Withdraw error: " + e.getMessage());;
+            System.out.println("Withdraw error: " + e.getMessage());
+
         }
     }
 }
